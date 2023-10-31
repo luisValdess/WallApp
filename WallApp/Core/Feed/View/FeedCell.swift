@@ -25,7 +25,7 @@ struct FeedCell: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             
             Divider()
             // Image + Username
@@ -34,7 +34,7 @@ struct FeedCell: View {
                     CircularProfileImageView(user: user, size: .xSmall)
                     
                     Text(user.username)
-                        .font(.footnote)
+                        .font(.subheadline)
                         .fontWeight(.semibold)
                 }
                 
@@ -44,7 +44,8 @@ struct FeedCell: View {
             
             // Post Image
             Text("\(post.caption)")
-                .padding(8)
+                .padding(.trailing, 8)
+                .padding(.leading, 54)
             
             // Actions Buttons
             HStack(spacing: 16) {
@@ -78,7 +79,7 @@ struct FeedCell: View {
                     .foregroundColor(.gray)
                 
             }
-            .padding(.leading, 8)
+            .padding(.leading, 10)
             .padding(.top, 4)
             .tint(.black)
             

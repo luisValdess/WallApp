@@ -10,6 +10,7 @@ import SwiftUI
 struct FeedView: View {
     
     @StateObject var viewModel = FeedViewModel()
+    @State var showUploadPost = false
     
     var body: some View {
         
@@ -20,7 +21,7 @@ struct FeedView: View {
                         FeedCell(post: post)
                     }
                 }
-                .padding(.top, 8)
+                .padding(.top, 5)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -29,14 +30,18 @@ struct FeedView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        print("AAAAA")
+                        showUploadPost.toggle()
                     }, label: {
-                        Image(systemName: "plus.square")
+                        Image(systemName: "square.and.pencil")
                             .imageScale(.large)
                             .foregroundColor(.black)
                     })
                 }
             }
+        }
+        .sheet(isPresented: $showUploadPost) {
+            UploadPostView()
+                .presentationDragIndicator(.visible)
         }
     }
 }
