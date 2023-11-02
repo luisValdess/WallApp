@@ -18,10 +18,12 @@ struct LoginView: View {
                 Spacer()
                 
                 //Logo Image
-                Image("instagram-logo")
+                Image("wall")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 220, height: 100)
+                
+                Spacer()
                 
                 //Text Field
                 VStack {
@@ -70,13 +72,18 @@ struct LoginView: View {
                     .foregroundColor(.gray)
                     
                     HStack {
-                        Image("facebook-logo")
+                        Image("glasses")
                             .resizable()
-                            .frame(width: 20, height: 20)
-                        Text("Continue with Facebook")
-                            .font(.footnote)
-                            .fontWeight(.semibold)
-                            .foregroundColor(.blue)
+                            .frame(width: 40, height: 20)
+                        Button {
+                            viewModel.setAsGuest()
+                        } label: {
+                            Text("Continue as a Guest")
+                                .font(.footnote)
+                                .fontWeight(.semibold)
+                                .foregroundColor(.blue)
+                        }
+
                     }
                     .padding(.top, 8)
                 }

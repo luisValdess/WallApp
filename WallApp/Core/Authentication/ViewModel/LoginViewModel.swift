@@ -13,6 +13,15 @@ class LoginViewModel: ObservableObject {
     @Published var password = ""
     
     func signIn() async throws {
-        try await AuthService.shared.login(withEmail: email, password: password)
+        do {
+            try await AuthService.shared.login(withEmail: email, password: password)
+        } catch {
+            print("DEBUG: Failed to log in user with error: \(error.localizedDescription)")
+        }
+    }
+    
+    @MainActor
+    func setAsGuest() {
+        GuestService.shared.setGuestTrue()
     }
 }
