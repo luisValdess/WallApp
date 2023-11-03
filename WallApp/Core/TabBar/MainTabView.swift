@@ -12,14 +12,15 @@ import SwiftUI
 struct MainTabView: View {
     
     @State private var selectedIndex = 0
+    let user: User?
     
     var body: some View {
         TabView(selection: $selectedIndex) {
-            FeedView()
+            FeedView(user: user)
                 .tabItem {
                     Image(systemName: "house")
                 }.tag(0)
-            ProfileView()
+            ProfileView(user: user)
                 .tabItem {
                     Image(systemName: "person")
                 }.tag(1)
@@ -29,5 +30,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView()
+    MainTabView(user: User.MockUsers[0])
 }

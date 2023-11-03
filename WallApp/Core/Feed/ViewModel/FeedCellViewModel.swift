@@ -11,9 +11,11 @@ import Foundation
 class FeedCellViewModel: ObservableObject {
     
     @Published var post: Post
+    @Published var user: User?
     
-    init(post: Post) {
+    init(post: Post, user: User? = nil) {
         self.post = post
+        self.user = user
         //Task { try await checkIfUserLikedPost() }
     }
     

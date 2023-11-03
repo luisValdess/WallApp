@@ -9,7 +9,16 @@ import SwiftUI
 
 struct FeedView: View {
     
-    @StateObject var viewModel = FeedViewModel()
+
+    init(user: User?) {
+        self._viewModel = StateObject(wrappedValue: FeedViewModel(user: user))
+    }
+    
+    private var user: User? {
+        return viewModel.user
+    }
+    
+    @StateObject var viewModel : FeedViewModel
     
     @State var showUploadPost = false
     @State var showAlert = false
@@ -20,7 +29,7 @@ struct FeedView: View {
             ScrollView {
                 LazyVStack(spacing: 32) {
                     ForEach(viewModel.posts) { post in
-                        FeedCell(post: post)
+                        FeedCell(post: post, user: user)
                     }
                 }
                 .padding(.top, 5)
@@ -41,9 +50,6 @@ struct FeedView: View {
                 }
             }
         }
-        .onAppear(perform: {
-            viewModel.thereIsACurrentUser()
-        })
         .alert("Log In to Publish", isPresented: $showAlert, actions: {
             Button("OK"){}
         })
@@ -54,7 +60,7 @@ struct FeedView: View {
     }
     
     private func postPermisionHandler() {
-        if viewModel.isItLogged {
+        if (user != nil) {
             showUploadPost.toggle()
         } else {
             showAlert.toggle()
@@ -63,5 +69,5 @@ struct FeedView: View {
 }
 
 #Preview {
-    FeedView()
+    FeedView(user: User.MockUsers[0])
 }

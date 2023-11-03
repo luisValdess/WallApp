@@ -14,7 +14,9 @@ struct FeedCell: View {
     @State private var showComments = false
     @State var showAlert = false
     
-    let thereIsACurrentUser: Bool
+    private var user: User? {
+        return viewModel.user
+    }
     
     private var post: Post {
         return viewModel.post
@@ -24,9 +26,8 @@ struct FeedCell: View {
         return post.didLike ?? false
     }
     
-    init(post: Post, thereIsACurrentUser: Bool = false) {
-        self.viewModel = FeedCellViewModel(post: post)
-        self.thereIsACurrentUser = thereIsACurrentUser
+    init(post: Post, user: User?) {
+        self.viewModel = FeedCellViewModel(post: post, user: user)
     }
     
     var body: some View {
@@ -100,7 +101,7 @@ struct FeedCell: View {
     }
     
      func handleCommentTapped() {
-        if thereIsACurrentUser {
+         if (user != nil) {
             showComments.toggle()
         } else {
             showAlert.toggle()
@@ -108,7 +109,7 @@ struct FeedCell: View {
     }
     
     func handleLikeTapped() {
-        if thereIsACurrentUser {
+        if (user != nil) {
             Task {
                 if didLike {
                     //try await viewModel.unlike()
@@ -123,5 +124,5 @@ struct FeedCell: View {
 }
 
 #Preview {
-    FeedCell(post: Post.MockPost[0])
+    FeedCell(post: Post.MockPost[0], user: User.MockUsers[0])
 }
