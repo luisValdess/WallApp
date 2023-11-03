@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A035E2D32AF08E1800EFB672 /* GuestOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A035E2D22AF08E1800EFB672 /* GuestOptionView.swift */; };
-		A035E2D82AF08E9D00EFB672 /* GuestOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A035E2D72AF08E9D00EFB672 /* GuestOptionViewModel.swift */; };
 		A035E2DD2AF0921100EFB672 /* GuestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A035E2DC2AF0921100EFB672 /* GuestService.swift */; };
 		A05151B62AF3409200DF5B7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A05151B52AF3409200DF5B7D /* GoogleService-Info.plist */; };
 		A08A48BE2ADE27B000E095C2 /* WallAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A48BD2ADE27B000E095C2 /* WallAppApp.swift */; };
@@ -51,8 +49,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A035E2D22AF08E1800EFB672 /* GuestOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestOptionView.swift; sourceTree = "<group>"; };
-		A035E2D72AF08E9D00EFB672 /* GuestOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestOptionViewModel.swift; sourceTree = "<group>"; };
 		A035E2DC2AF0921100EFB672 /* GuestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestService.swift; sourceTree = "<group>"; };
 		A05151B52AF3409200DF5B7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A08A48BA2ADE27B000E095C2 /* WallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,31 +102,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A035E2D42AF08E1D00EFB672 /* Guest */ = {
-			isa = PBXGroup;
-			children = (
-				A035E2D52AF08E2F00EFB672 /* View */,
-				A035E2D62AF08E3C00EFB672 /* ViewModel */,
-			);
-			path = Guest;
-			sourceTree = "<group>";
-		};
-		A035E2D52AF08E2F00EFB672 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				A035E2D22AF08E1800EFB672 /* GuestOptionView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		A035E2D62AF08E3C00EFB672 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				A035E2D72AF08E9D00EFB672 /* GuestOptionViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		A08A48B12ADE27B000E095C2 = {
 			isa = PBXGroup;
 			children = (
@@ -173,7 +144,6 @@
 		A09FEC062ADE294200F7E516 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A035E2D42AF08E1D00EFB672 /* Guest */,
 				A0C350972AEEA48B0044A319 /* Profile */,
 				A09FEC152ADF663200F7E516 /* Authentication */,
 				A0E8327E2AE3610D00DBC228 /* Components */,
@@ -482,10 +452,8 @@
 				A09FEC5F2ADF7BE000F7E516 /* RegistrationViewModel.swift in Sources */,
 				A09FEC0E2ADE2ECC00F7E516 /* FeedView.swift in Sources */,
 				A09FEC5A2ADF78E400F7E516 /* UserService.swift in Sources */,
-				A035E2D32AF08E1800EFB672 /* GuestOptionView.swift in Sources */,
 				A09FEC572ADF760A00F7E516 /* User.swift in Sources */,
 				A0DCA2AD2AEB4D19006B5299 /* Extensions.swift in Sources */,
-				A035E2D82AF08E9D00EFB672 /* GuestOptionViewModel.swift in Sources */,
 				A0E832802AE361F900DBC228 /* TextFieldModifier.swift in Sources */,
 				A08A48C02ADE27B000E095C2 /* ContentView.swift in Sources */,
 				A0DCA2B32AED6C32006B5299 /* UploadPostView.swift in Sources */,

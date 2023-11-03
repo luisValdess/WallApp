@@ -9,7 +9,9 @@ import Foundation
 import Firebase
 
 class FeedViewModel: ObservableObject {
+    
     @Published var posts = [Post]()
+    @Published var isItLogged = false
     
     init() {
         Task { try await fetchPosts() }
@@ -18,5 +20,13 @@ class FeedViewModel: ObservableObject {
     @MainActor
     func fetchPosts() async throws {
         self.posts = try await PostService.fetchFeedPost()
+    }
+    
+    func thereIsACurrentUser() {
+        if let _ = UserService.shared.currentUser {
+            isItLogged = true
+        } else {
+            isItLogged = false
+        }
     }
 }

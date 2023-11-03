@@ -22,5 +22,4 @@ class UploadPostViewModel: ObservableObject {
         try await postRef.setData(encodedPost)
     }
     
-    
 }

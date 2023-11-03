@@ -70,6 +70,7 @@ struct UploadPostView: View {
                         Task {
                             try await viewModel.uploadPost(caption: text)
                             clearPostDataAndReturnToFeed()
+                            dismiss()
                         }
                     }, label: {
                         Text("Post")

@@ -10,7 +10,9 @@ import SwiftUI
 struct FeedView: View {
     
     @StateObject var viewModel = FeedViewModel()
+    
     @State var showUploadPost = false
+    @State var showAlert = false
     
     var body: some View {
         
@@ -30,7 +32,7 @@ struct FeedView: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
-                        showUploadPost.toggle()
+                        postPermisionHandler()
                     }, label: {
                         Image(systemName: "square.and.pencil")
                             .imageScale(.large)
@@ -39,9 +41,23 @@ struct FeedView: View {
                 }
             }
         }
+        .onAppear(perform: {
+            viewModel.thereIsACurrentUser()
+        })
+        .alert("Log In to Publish", isPresented: $showAlert, actions: {
+            Button("OK"){}
+        })
         .sheet(isPresented: $showUploadPost) {
             UploadPostView()
                 .presentationDragIndicator(.visible)
+        }
+    }
+    
+    private func postPermisionHandler() {
+        if viewModel.isItLogged {
+            showUploadPost.toggle()
+        } else {
+            showAlert.toggle()
         }
     }
 }

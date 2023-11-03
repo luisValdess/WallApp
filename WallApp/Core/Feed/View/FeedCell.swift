@@ -10,7 +10,11 @@ import SwiftUI
 struct FeedCell: View {
     
     @ObservedObject var viewModel : FeedCellViewModel
+    
     @State private var showComments = false
+    @State var showAlert = false
+    
+    let thereIsACurrentUser: Bool
     
     private var post: Post {
         return viewModel.post
@@ -20,8 +24,9 @@ struct FeedCell: View {
         return post.didLike ?? false
     }
     
-    init(post: Post) {
+    init(post: Post, thereIsACurrentUser: Bool = false) {
         self.viewModel = FeedCellViewModel(post: post)
+        self.thereIsACurrentUser = thereIsACurrentUser
     }
     
     var body: some View {
@@ -66,7 +71,7 @@ struct FeedCell: View {
                 }
                 
                 Button {
-                    showComments.toggle()
+                    handleCommentTapped()
                 } label: {
                     Image(systemName: "bubble.right")
                 }
@@ -85,19 +90,34 @@ struct FeedCell: View {
             
             
         }
+        .alert("Log In to Interact", isPresented: $showAlert, actions: {
+            Button("OK"){}
+        })
         .sheet(isPresented: $showComments) {
             //            CommentsView(post: post)
             //                .presentationDragIndicator(.visible)
         }
     }
     
-    private func handleLikeTapped() {
-        Task {
-            if didLike {
-                //try await viewModel.unlike()
-            } else {
-                //try await viewModel.like()
+     func handleCommentTapped() {
+        if thereIsACurrentUser {
+            showComments.toggle()
+        } else {
+            showAlert.toggle()
+        }
+    }
+    
+    func handleLikeTapped() {
+        if thereIsACurrentUser {
+            Task {
+                if didLike {
+                    //try await viewModel.unlike()
+                } else {
+                    //try await viewModel.like()
+                }
             }
+        } else {
+            showAlert.toggle()
         }
     }
 }
