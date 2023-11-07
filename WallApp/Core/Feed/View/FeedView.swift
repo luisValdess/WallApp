@@ -34,6 +34,9 @@ struct FeedView: View {
                 }
                 .padding(.top, 5)
             }
+            .refreshable {
+                Task { try await viewModel.fetchPosts() }
+            }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Text("WallApp")

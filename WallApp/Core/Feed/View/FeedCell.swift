@@ -95,8 +95,8 @@ struct FeedCell: View {
             Button("OK"){}
         })
         .sheet(isPresented: $showComments) {
-            //            CommentsView(post: post)
-            //                .presentationDragIndicator(.visible)
+            CommentsView(post: post)
+                .presentationDragIndicator(.visible)
         }
     }
     
@@ -108,19 +108,15 @@ struct FeedCell: View {
         }
     }
     
-    func handleLikeTapped() {
-        if (user != nil) {
+    private func handleLikeTapped() {
             Task {
                 if didLike {
-                    //try await viewModel.unlike()
+                    try await viewModel.unlike()
                 } else {
-                    //try await viewModel.like()
+                    try await viewModel.like()
                 }
             }
-        } else {
-            showAlert.toggle()
         }
-    }
 }
 
 #Preview {

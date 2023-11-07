@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		A035E2DD2AF0921100EFB672 /* GuestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A035E2DC2AF0921100EFB672 /* GuestService.swift */; };
+		A041CB0F2AF9AF2F004238CB /* CommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041CB0E2AF9AF2E004238CB /* CommentsView.swift */; };
+		A041CB142AF9AF95004238CB /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041CB132AF9AF95004238CB /* Comment.swift */; };
+		A041CB162AF9B1EB004238CB /* CommentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041CB152AF9B1EB004238CB /* CommentService.swift */; };
+		A041CB182AF9B283004238CB /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041CB172AF9B283004238CB /* CommentsCell.swift */; };
+		A041CB1A2AF9B30A004238CB /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A041CB192AF9B30A004238CB /* CommentsViewModel.swift */; };
 		A05151B62AF3409200DF5B7D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A05151B52AF3409200DF5B7D /* GoogleService-Info.plist */; };
 		A08A48BE2ADE27B000E095C2 /* WallAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A48BD2ADE27B000E095C2 /* WallAppApp.swift */; };
 		A08A48C02ADE27B000E095C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08A48BF2ADE27B000E095C2 /* ContentView.swift */; };
@@ -50,6 +55,11 @@
 
 /* Begin PBXFileReference section */
 		A035E2DC2AF0921100EFB672 /* GuestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestService.swift; sourceTree = "<group>"; };
+		A041CB0E2AF9AF2E004238CB /* CommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsView.swift; sourceTree = "<group>"; };
+		A041CB132AF9AF95004238CB /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		A041CB152AF9B1EB004238CB /* CommentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentService.swift; sourceTree = "<group>"; };
+		A041CB172AF9B283004238CB /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		A041CB192AF9B30A004238CB /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 		A05151B52AF3409200DF5B7D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A08A48BA2ADE27B000E095C2 /* WallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A08A48BD2ADE27B000E095C2 /* WallAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallAppApp.swift; sourceTree = "<group>"; };
@@ -102,6 +112,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A041CB0D2AF9AF1C004238CB /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				A041CB112AF9AF40004238CB /* ViewModel */,
+				A041CB102AF9AF38004238CB /* View */,
+			);
+			path = Comments;
+			sourceTree = "<group>";
+		};
+		A041CB102AF9AF38004238CB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A041CB0E2AF9AF2E004238CB /* CommentsView.swift */,
+				A041CB172AF9B283004238CB /* CommentsCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A041CB112AF9AF40004238CB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				A041CB192AF9B30A004238CB /* CommentsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		A08A48B12ADE27B000E095C2 = {
 			isa = PBXGroup;
 			children = (
@@ -144,6 +180,7 @@
 		A09FEC062ADE294200F7E516 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				A041CB0D2AF9AF1C004238CB /* Comments */,
 				A0C350972AEEA48B0044A319 /* Profile */,
 				A09FEC152ADF663200F7E516 /* Authentication */,
 				A0E8327E2AE3610D00DBC228 /* Components */,
@@ -277,6 +314,7 @@
 			children = (
 				A09FEC562ADF760A00F7E516 /* User.swift */,
 				A0DCA2A32AEB47E0006B5299 /* Post.swift */,
+				A041CB132AF9AF95004238CB /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -287,6 +325,7 @@
 				A09FEC592ADF78E400F7E516 /* UserService.swift */,
 				A0C350912AEE93BD0044A319 /* PostService.swift */,
 				A035E2DC2AF0921100EFB672 /* GuestService.swift */,
+				A041CB152AF9B1EB004238CB /* CommentService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -442,6 +481,7 @@
 			files = (
 				A0DCA2A62AEB4971006B5299 /* FeedViewModel.swift in Sources */,
 				A0C350992AEEA4BE0044A319 /* ProfileView.swift in Sources */,
+				A041CB0F2AF9AF2F004238CB /* CommentsView.swift in Sources */,
 				A0E8327C2AE35F0D00DBC228 /* AddEmailView.swift in Sources */,
 				A035E2DD2AF0921100EFB672 /* GuestService.swift in Sources */,
 				A0DCA2AA2AEB4BA5006B5299 /* FeedCellViewModel.swift in Sources */,
@@ -455,16 +495,20 @@
 				A09FEC572ADF760A00F7E516 /* User.swift in Sources */,
 				A0DCA2AD2AEB4D19006B5299 /* Extensions.swift in Sources */,
 				A0E832802AE361F900DBC228 /* TextFieldModifier.swift in Sources */,
+				A041CB1A2AF9B30A004238CB /* CommentsViewModel.swift in Sources */,
 				A08A48C02ADE27B000E095C2 /* ContentView.swift in Sources */,
 				A0DCA2B32AED6C32006B5299 /* UploadPostView.swift in Sources */,
 				A0E8327A2AE35F0D00DBC228 /* CreateUserName.swift in Sources */,
+				A041CB162AF9B1EB004238CB /* CommentService.swift in Sources */,
 				A09FEC5D2ADF79C900F7E516 /* Constants.swift in Sources */,
 				A0DCA2A82AEB4B44006B5299 /* FeedCell.swift in Sources */,
 				A08A48BE2ADE27B000E095C2 /* WallAppApp.swift in Sources */,
 				A09FEC612ADF7C0600F7E516 /* LoginViewModel.swift in Sources */,
 				A0C350902AED92C70044A319 /* UploadPostViewModel.swift in Sources */,
 				A09FEC092ADE29C300F7E516 /* MainTabView.swift in Sources */,
+				A041CB142AF9AF95004238CB /* Comment.swift in Sources */,
 				A0E8327D2AE35F0D00DBC228 /* CompleteSignUpView.swift in Sources */,
+				A041CB182AF9B283004238CB /* CommentsCell.swift in Sources */,
 				A0DCA2A42AEB47E0006B5299 /* Post.swift in Sources */,
 				A0C350922AEE93BD0044A319 /* PostService.swift in Sources */,
 				A09FEC102ADF65AB00F7E516 /* ContentViewModel.swift in Sources */,

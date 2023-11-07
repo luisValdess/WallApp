@@ -35,6 +35,7 @@ class AuthService {
     func createUser(email: String, password: String, username: String) async throws {
         do {
             let result = try await Auth.auth().createUser(withEmail: email, password: password)
+            callCloudFunction()
             self.userSession = result.user
             await self.uploadUserData(uid: result.user.uid, username: username, email: email)
         } catch {
@@ -59,5 +60,25 @@ class AuthService {
         UserService.shared.currentUser = user
         guard let encodedUser = try? Firestore.Encoder().encode(user) else { return }
         try? await FirebaseConstants.UsersCollection.document(user.id).setData(encodedUser)
+    }
+    
+    func callCloudFunction() {
+
+        guard let url = URL(string: "YOUR_CLOUD_FUNCTION_URL") else {
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("Error calling Cloud Function: \(error.localizedDescription)")
+            } else {
+                if let data = data, let responseString = String(data: data, encoding: .utf8) {
+                    print("Response from Cloud Function: \(responseString)")
+                }
+            }
+        }.resume()
     }
 }
